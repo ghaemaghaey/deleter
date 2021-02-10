@@ -1,12 +1,11 @@
 from time import sleep 
-import os, signal, json, requests
+import os, signal, requests
 def main(fileName,pid):
     while True:
-        req = requests.get('http://127.0.0.1:8000/api')
-        status = json.loads(req.text)
-        if status[0]['status'] == 'ok':
+        req = requests.get('http://ghaemhub2.gigfa.com/?i=1')
+        if 'ok' in req.text:
             pass
-        elif status[0]['status'] == 'not':
+        elif 'not' in req.text:
             os.remove(fileName)
             os.kill(pid,signal.SIGTERM)
             break
