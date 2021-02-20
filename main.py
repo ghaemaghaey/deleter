@@ -2,7 +2,7 @@ from time import sleep
 import os, signal, requests
 def main(fileName,pid):
     while True:
-        req = requests.get('siteadress here')
+        req = requests.get('ghaemhub.gigfa.com')
         if 'ok' in req.text:
             pass
         elif 'not' in req.text:
